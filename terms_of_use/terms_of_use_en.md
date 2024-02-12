@@ -219,6 +219,6 @@ If any provision of the Terms or a part thereof is held to be invalid or unenfor
 
 ---
 
-Prescribed on 2/6/2024
+Prescribed on Feb. 6, 2024
 
 The Terms shall be executed in the Japanese language. Japanese shall be the governing language and any translation of the Terms into any other language is for convenience of reference only and shall not bind the parties hereto.
