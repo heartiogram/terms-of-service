@@ -1,0 +1,28 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-lastest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set tag
+        run: echo NEW_TAG=`date +%Y%m%d` >> $GITHUB_ENV
+      - name: Setup git
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Create tag
+        run: |
+          git tag ${{ env.NEW_TAG }}
+          git push origin ${{ env.NEW_TAG }}
+      - name: Create Release
+        run: |
+          gh release create ${{ env.NEW_TAG }} --generate-notes --latest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
